@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   # Add your actions below this line
   # ================================
 def homepage
-  render({ :template=>"game_template/rules.html.erb"})
+  render({ :template=>"game_template/rules.html.erb", :layout => "wrapper.html.erb"})
 end
 def play_rock
   # redirect_to("") will redirect to any url you put in there
-  render({:template => "game_template/user_rock.html.erb"})
+  render({:template => "game_template/user_rock.html.erb", :layout => "wrapper.html.erb"})
 
   #:template=>
   #.html_safe ruby saving us from ppl injecting bad html
@@ -25,6 +25,9 @@ def play_paper
     @outcome = "lost"
    end
 
-  render({:template => "game_template/user_paper.html.erb"})
+  render({:template => "game_template/user_paper.html.erb", :layout => "wrapper.html.erb"})
+end
+def play_scissors
+  render({:template => "game_template/user_scissors.html.erb", :layout => "wrapper.html.erb"})
 end
 end
